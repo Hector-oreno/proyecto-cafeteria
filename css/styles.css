@@ -1,4 +1,56 @@
-h1 {
-    color: blue;
-    text-align: center;
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+    background-color: #f5f2ed;
+}
+
+h1{
+    color: #76523b;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 0;
+    white-space: nowrap;
+}
+
+header{
+    position: relative;        
+    display: flex;
+    align-items: center;
+    width: fit-content;        
+    margin: 180px auto 0;       
+    font-size: 4.5rem;
+}
+
+.areola{
+    position: absolute;   
+    width: 3.3em;         
+    top: -0.8em;          
+    left: 0.34em;
+}
+
+.grano{
+     width: 6.9em;              
+    flex-shrink: 0;            
+    margin-left: -3.85em;      
+    transform: translateY(0.25em); 
+}
+
+nav{
+    margin-top: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+nav a{
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 1.5em;
+    color: #ffff;
+    background-color: #76523b;
+    padding: 20px 70px;
+    border-radius: 12px;
+
 }
