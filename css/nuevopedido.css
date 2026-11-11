@@ -1,0 +1,85 @@
+/* Sección del catálogo */
+.catalogo {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #332b25;
+}
+
+.catalogo h2 {
+    margin-bottom: 8px;
+}
+
+.catalogo > p {
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: #70665e;
+}
+
+/* Lista de productos en dos columnas */
+#lista-productos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* Tarjeta de cada producto */
+#lista-productos li {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ded4ca;
+    border-radius: 12px;
+}
+
+#lista-productos h3 {
+    margin: 0 0 12px;
+    overflow-wrap: break-word;
+}
+
+#lista-productos p {
+    margin: 0 0 16px;
+    color: #70665e;
+}
+
+/* Precio: último párrafo de cada tarjeta */
+#lista-productos p:last-of-type {
+    color: #332b25;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* Botón para agregar */
+#lista-productos button {
+    margin-top: auto;
+    padding: 12px 18px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #76523b;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#lista-productos button:hover {
+    background-color: #5e402d;
+}
+
+/* Identifica el botón al navegar con el teclado */
+#lista-productos button:focus-visible {
+    outline: 3px solid #76523b;
+    outline-offset: 3px;
+}
+
+/* Una columna en teléfonos */
+@media (max-width: 600px) {
+    #lista-productos {
+        grid-template-columns: 1fr;
+    }
+}
