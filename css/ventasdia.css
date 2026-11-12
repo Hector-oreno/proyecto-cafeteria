@@ -1,0 +1,171 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 28px;
+    background-color: #f5f2ed;
+    color: #30271f;
+    font-family: Arial, sans-serif;
+}
+
+.titulo-pagina {
+    margin: 0 0 44px;
+    font-size: 18px;
+}
+
+/* Contenedor principal */
+
+.santo-grano {
+    background-color: white;
+    border: 1px solid #e8e1d8;
+    border-radius: 8px;
+    max-width: 1100px;
+    margin: auto;
+    min-height: 355px;
+    overflow: hidden;
+}
+
+/* Encabezado */
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 24px;
+    border-bottom: 1px solid #eee8e1;
+}
+
+.encabezado h4 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.botones {
+    display: flex;
+    gap: 16px;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.botones button {
+    background-color: #76543f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 22px;
+    min-width: 110px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.botones button:hover {
+    background-color: #593d2d;
+}
+
+/* Resumen diario */
+
+.resumen-diario {
+    padding: 12px 24px 0;
+}
+
+.titulo-fecha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.titulo-fecha h4 {
+    font-size: 14px;
+    margin: 0;
+}
+
+.fecha {
+    border: 1px solid #e8e1d8;
+    border-radius: 5px;
+    padding: 8px 30px;
+    font-size: 11px;
+    color: #76543f;
+}
+
+.estadisticas {
+    display: flex;
+    gap: 14px;
+}
+
+.ventas-registradas,
+.pedidos-confirmados {
+    background-color: #f5f2ed;
+    border: 1px solid #e8e1d8;
+    border-radius: 6px;
+    padding: 12px;
+    flex: 1;
+}
+
+.estadisticas p {
+    margin: 0 0 8px;
+    font-size: 9px;
+    font-weight: bold;
+    color: #746a60;
+}
+
+.estadisticas span {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Pedidos registrados */
+
+.pedidos-registrados {
+    padding: 16px 24px 48px;
+}
+
+.pedidos-registrados h4 {
+    margin: 0 0 12px;
+    font-size: 13px;
+}
+
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+thead {
+    background-color: #ebe5dc;
+}
+
+th {
+    font-size: 10px;
+    color: #6f665d;
+    padding: 10px 12px;
+}
+
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #eee8e1;
+    font-size: 12px;
+}
+
+.btn-detalle {
+    background-color: white;
+    border: 1px solid #e8e1d8;
+    color: #76543f;
+    border-radius: 5px;
+    padding: 7px 20px;
+    font-size: 11px;
+}
+
+.btn-detalle:hover {
+    background-color: #f5f2ed;
+}

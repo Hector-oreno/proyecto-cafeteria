@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas del día | Santo Grano</title>
+    <link rel="stylesheet" href="css/ventasdia.css">
+    <script src="js/ventasdia.js" defer></script>
+</head>
+<body>
+
+    <h3 class="titulo-pagina">Ventas del día</h3>
+
+    <main class="santo-grano">
+
+        <!-- Encabezado -->
+        <header class="encabezado">
+            <h4>Santo Grano</h4>
+
+            <div class="botones">
+                <button id="nuevo-pedido" type="button">
+                    Nuevo pedido
+                </button>
+                <button id="menu" type="button">
+                    Menú
+                </button>
+            </div>
+        </header>
+
+        <!-- Resumen diario -->
+        <section class="resumen-diario">
+
+            <div class="titulo-fecha">
+                <h4>Resumen diario</h4>
+                <span id="fecha" class="fecha"></span>
+            </div>
+
+            <div class="estadisticas">
+
+                <div class="ventas-registradas">
+                    <p>VENTAS REGISTRADAS</p>
+                    <span id="VR">Q0.00</span>
+                </div>
+
+                <div class="pedidos-confirmados">
+                    <p>PEDIDOS CONFIRMADOS</p>
+                    <span id="PC">0 pedidos</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Tabla de pedidos -->
+        <section class="pedidos-registrados">
+
+            <h4>Pedidos registrados</h4>
+
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>PEDIDO</th>
+                            <th>HORA</th>
+                            <th>UNIDADES</th>
+                            <th>TOTAL</th>
+                            <th>CONSULTA</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+</body>
+</html>
