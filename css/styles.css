@@ -42,6 +42,7 @@ nav{
     align-items: center;
     justify-content: center;
     gap: 40px;
+    
 }
 
 nav a{
@@ -53,4 +54,40 @@ nav a{
     padding: 20px 70px;
     border-radius: 12px;
 
+}
+
+/* Permite que los enlaces pasen a otra fila si no caben. */
+nav {
+    flex-wrap: wrap;
+    padding: 0 20px 30px;
+}
+
+/* Ajustes para tabletas y teléfonos. */
+@media (max-width: 768px) {
+    header {
+        font-size: 5.5vw;
+        margin-top: 100px;
+    }
+
+    nav {
+        margin-top: 70px;
+        gap: 20px;
+    }
+
+    nav a {
+        padding: 18px 30px;
+        text-align: center;
+    }
+}
+
+/* Coloca los enlaces uno debajo del otro en teléfonos. */
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    nav a {
+        font-size: 1.2rem;
+    }
 }

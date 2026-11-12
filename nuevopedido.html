@@ -3,17 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nuevo pedido</title>
     <link rel="stylesheet" href="css/nuevopedido.css">
 </head>
 <body>
     
-    <section>
-    <h2>Catálogo de productos</h2>
-    <p>Precios por unidad</p>
+    <main>
+        <div class="encabezado-pedido">
+            <h1>Nuevo pedido</h1>
 
-    <ul id="lista-productos"></ul>
-    </section>
+            <a href="index.html" id="menu" class="boton-inicio">
+                Menú
+            </a>
+        </div>
+
+        <div class="contenido-pedido">
+            <section class="catalogo">
+                <h2>Catálogo de productos</h2>
+                <p>Precios por unidad</p>
+
+                <ul id="lista-productos">
+                <!-- Aquí van las tarjetas de productos. -->
+                </ul>
+            </section>
+
+            <section class="pedido-actual">
+                <h2>Pedido actual</h2>
+
+                <form id="formulario-pedido">
+                    <!-- Aquí van los productos y sus cantidades. -->
+
+                    <p>
+                        Total del pedido:
+                        <output id="total-pedido">Q0.00</output>
+                    </p>
+
+                    <button type="submit">Confirmar pedido</button>
+                </form>
+            </section>
+        </div>
+    </main>
 
 
     <script src="js/nuevopedido.js"></script>

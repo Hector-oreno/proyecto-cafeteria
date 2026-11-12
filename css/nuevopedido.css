@@ -1,43 +1,118 @@
-/* Sección del catálogo */
-.catalogo {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-    color: #332b25;
+/* Incluye el relleno y los bordes en el ancho de cada elemento. */
+* {
+    box-sizing: border-box;
 }
 
-.catalogo h2 {
-    margin-bottom: 8px;
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #332b25;
+    background-color: #f5f2ed;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+/* Encabezado y navegación */
+header {
+    max-width: 1200px;
+    margin: 30px auto 0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ded4ca;
+    border-radius: 12px 12px 0 0;
+}
+
+header p {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+nav a,
+.boton-inicio {
+    display: inline-block;
+    padding: 12px 20px;
+    color: #ffffff;
+    background-color: #76523b;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Contenido principal */
+main {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 0 0 12px 12px;
+}
+
+h1 {
+    margin: 0 0 24px;
+    font-size: 1.7rem;
+}
+
+h2 {
+    margin: 0 0 10px;
+    font-size: 1.3rem;
+}
+
+/* Dos paneles: catálogo y pedido */
+.contenido-pedido {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 28px;
+}
+
+.catalogo,
+.pedido-actual {
+    min-width: 0;
 }
 
 .catalogo > p {
-    margin-top: 0;
-    margin-bottom: 24px;
+    margin: 0 0 20px;
     color: #70665e;
 }
 
-/* Lista de productos en dos columnas */
+/* Catálogo */
 #lista-productos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 0;
+    gap: 16px;
     margin: 0;
+    padding: 0;
     list-style: none;
 }
 
-/* Tarjeta de cada producto */
 #lista-productos li {
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    background-color: #ffffff;
+    padding: 18px;
+    background-color: #f5f2ed;
     border: 1px solid #ded4ca;
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
 #lista-productos h3 {
-    margin: 0 0 12px;
+    margin: 0 0 10px;
+    font-size: 1.1rem;
     overflow-wrap: break-word;
 }
 
@@ -46,40 +121,177 @@
     color: #70665e;
 }
 
-/* Precio: último párrafo de cada tarjeta */
 #lista-productos p:last-of-type {
     color: #332b25;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
-/* Botón para agregar */
 #lista-productos button {
     margin-top: auto;
-    padding: 12px 18px;
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #ffffff;
-    background-color: #76523b;
-    border: 2px solid transparent;
+    padding: 12px;
+    color: #76523b;
+    background-color: #ffffff;
+    border: 1px solid #ded4ca;
     border-radius: 8px;
+    font-weight: bold;
     cursor: pointer;
 }
 
-#lista-productos button:hover {
+/* Panel del pedido */
+.pedido-actual {
+    padding: 20px;
+    background-color: #f5f2ed;
+    border-radius: 10px;
+}
+
+.resumen-unidades {
+    margin: 0 0 20px;
+    color: #70665e;
+}
+
+#lista-pedido {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#lista-pedido li {
+    padding: 16px 0;
+    border-bottom: 1px solid #ded4ca;
+}
+
+#lista-pedido h3 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+    overflow-wrap: break-word;
+}
+
+#lista-pedido p {
+    margin: 0 0 12px;
+    color: #70665e;
+}
+
+/* Cantidad y acciones de cada producto */
+.controles-cantidad {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.controles-cantidad label {
+    width: 100%;
+}
+
+.controles-cantidad button {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px 12px;
+    color: #76523b;
+    background-color: #ffffff;
+    border: 1px solid #ded4ca;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.controles-cantidad input {
+    width: 70px;
+    min-height: 44px;
+    padding: 8px;
+    border: 1px solid #ded4ca;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.controles-cantidad .boton-quitar {
+    margin-left: auto;
+}
+
+/* Total y confirmación */
+.total-pedido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+#total-pedido {
+    font-size: 1.7rem;
+}
+
+#formulario-pedido button[type="submit"] {
+    width: 100%;
+    min-height: 44px;
+    padding: 14px;
+    color: #ffffff;
+    background-color: #76523b;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton-inicio {
+    margin-top: 24px;
+}
+
+.encabezado-pedido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.encabezado-pedido h1 {
+    margin: 0;
+}
+
+.encabezado-pedido .boton-inicio {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+/* Mensajes */
+.mensaje-pedido {
+    margin: 16px 0 0;
+    line-height: 1.5;
+}
+
+.mensaje-error {
+    color: #a12622;
+}
+
+.mensaje-exito {
+    color: #286044;
+}
+
+/* Estados de los controles */
+nav a:hover,
+.boton-inicio:hover,
+#formulario-pedido button[type="submit"]:hover {
     background-color: #5e402d;
 }
 
-/* Identifica el botón al navegar con el teclado */
-#lista-productos button:focus-visible {
+#lista-productos button:hover,
+.controles-cantidad button:hover {
+    background-color: #e9e0d6;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
     outline: 3px solid #76523b;
     outline-offset: 3px;
 }
 
-/* Una columna en teléfonos */
-@media (max-width: 600px) {
-    #lista-productos {
-        grid-template-columns: 1fr;
-    }
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
+

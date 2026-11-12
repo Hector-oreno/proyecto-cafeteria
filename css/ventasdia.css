@@ -169,3 +169,24 @@ td {
 .btn-detalle:hover {
     background-color: #f5f2ed;
 }
+
+.boton-inicio {
+    display: inline-block;
+    margin: 20px;
+    padding: 12px 20px;
+    background-color: #76523b;
+    color: #ffffff;
+    font-family: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.boton-inicio:hover {
+    background-color: #5e402d;
+}
+
+.boton-inicio:focus-visible {
+    outline: 3px solid #76523b;
+    outline-offset: 3px;
+}
