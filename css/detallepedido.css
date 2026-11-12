@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #332c26;
+    background-color: #f5f2ed;
+}
+
+main {
+    max-width: 1028px;
+    margin: 24px auto;
+    padding: 0 20px;
+
+}
+
+section {
+    background-color: white;
+    border: 1px solid #e6ddd3;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+table{
+    width:100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+
+}
+
+th,
+td {
+    padding: 14px 16px;
+    text-aling: left;
+}
+
+thead {
+    background-color: #ece4d9;
+
+}
+
+tbody tr {
+    border-bottom: 1px solid #e8ded4;
+
+}
+tfoot th {text-align: right;
+}
+
+tfoot td {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.estado {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 6px;
+    background-color: #e5eee8;
+    color: #35694e;
+    font-weight: bold;
+    margin: 0;
+}
+
+.encabezado-pedido {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap:16px;
+    flex-wrap: wrap;
+
+}
+/*el flex hace que esten a la par los dos bloques, space between hace que esten un poco apartados los bloques, flexwrap hace que se acomode to*/
+
