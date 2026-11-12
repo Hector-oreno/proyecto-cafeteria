@@ -53,18 +53,23 @@ button {
     font-family: inherit;
 }
 
-.botones button {
+.botones .boton-inicio {
+    display: inline-block;
     background-color: #76543f;
     color: white;
     border: none;
     border-radius: 5px;
     padding: 8px 22px;
     min-width: 110px;
+    margin: 0;
     font-size: 12px;
     font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.botones button:hover {
+.botones .boton-inicio:hover {
     background-color: #593d2d;
 }
 
