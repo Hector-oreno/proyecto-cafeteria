@@ -4,21 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resumen del Pedido</title>
+    <link rel="stylesheet" href="css/resumenPedido.css">
+
+
+
 </head>
 <body>
-    <H3>Resumen del pedido</H3>
+    
     <main class="santo">
+        <H1>Resumen del pedido</H1>
+        <div class="tarjeta_resumen">
+            
+     
         <header class="encabezado">
         <p class="titulo">Santo grano</p>
         <div class="btn">
-            <button id="btnTuning" type="button">Modificar Pedido</button>
+            <button id="btnModificar" type="button">Modificar Pedido</button>
         </div>   
         </header>
 
         <section class="pedidos">
+            <h2 id="numeroPedido">Pedido #001</h2>
+            <p id="datosPedido">01/11/2026 - 10:00 - 3 unidades</p>
+           <div class="tabla_contenedor">
+            <table> 
+          
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio unitario</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+
+                </tr>
+
+            </thead>
+            <tbody id="productosPedido"></tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="3">Total</th>
+                    <td id="totalPedido">Q46.00</td>
+
+                </tr>
+            </tfoot>
+        </table>
+    </div>
 
         </section>
-
+        <div class="acciones">
+            <button class="boton_cancelar"
+            type="button">Cancelar</button>
+            <button class="boton_confirmar"
+            type="button">Confirmar</button>
+        </div>
+   </div>
     </main>
+    <script src="js/resumenPedido.js"></script>
 </body>
 </html>
