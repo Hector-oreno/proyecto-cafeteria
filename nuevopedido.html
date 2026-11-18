@@ -1,152 +1,166 @@
 <!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Nuevo pedido</title>
-        <link rel="stylesheet" href="css/nuevopedido.css">
-        <script src="js/funciones.js" defer></script>
-        <script src="js/nuevopedido.js" defer></script>
-    </head>
-    <body>
-        <main>
-            <div class="encabezado-pedido">
-                <h1>Nuevo pedido</h1>
-                <a href="index.html" id="menu" class="boton-inicio">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo pedido</title>
+    <link rel="stylesheet" href="css/nuevopedido.css">
+</head>
+<script defer src ="js/nuevopedido.js"></script>
+<body>
+    
+    <main>
+        <section class="encabezado-pedido">
+            <h1>Nuevo pedido</h1>
+
+            <a href="index.html" id="menu" class="boton-inicio">
                 Menú
             </a>
-            </div>
-            <div class="contenido-pedido">
-                <section class="catalogo">
-                    <h2>Catálogo de productos</h2>
-                    <label for="buscador">Buscar producto</label>
-                    <input type="search" id="buscador" placeholder="Buscar producto por nombre" aria-label="Buscar producto por nombre" autocomplete="off">
-                    <p>Precios por unidad</p>
-                    <ul id="lista-productos">
-                        <li>
-                            <h3>Café americano</h3>
-                            <p>Bebida caliente</p>
-                            <p>Q12.00</p>
-                            <button type="button" id="agregar-americano">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Capuchino</h3>
-                            <p>Bebida caliente</p>
-                            <p>Q18.00</p>
-                            <button type="button" id="agregar-capuchino">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Té</h3>
-                            <p>Bebida caliente</p>
-                            <p>Q10.00</p>
-                            <button type="button" id="agregar-te">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Sándwich</h3>
-                            <p>Alimento</p>
-                            <p>Q22.00</p>
-                            <button type="button" id="agregar-sandwich">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Espresso</h3>
-                            <p>Bebida caliente</p>
-                            <p>Q30.00</p>
-                            <button type="button" id="agregar-espresso">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Latte</h3>
-                            <p>Bebida caliente</p>
-                            <p>Q35.00</p>
-                            <button type="button" id="agregar-latte">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Americano</h3>
-                            <p>Bebida caliente</p>
-                            <p>Q35.00</p>
-                            <button type="button" id="agregar-americano2">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Macchiato</h3>
-                            <p>Bebida caliente</p>
-                            <p>Q45.00</p>
-                            <button type="button" id="agregar-macchiato">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Flat White</h3>
-                            <p>Bebida caliente</p>
-                            <p>Q45.00</p>
-                            <button type="button" id="agregar-flatwhite">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Medialuna</h3>
-                            <p>Repostería</p>
-                            <p>Q20.00</p>
-                            <button type="button" id="agregar-medialuna">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Muffin</h3>
-                            <p>Repostería</p>
-                            <p>Q25.00</p>
-                            <button type="button" id="agregar-muffin">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Dona</h3>
-                            <p>Repostería</p>
-                            <p>Q35.00</p>
-                            <button type="button" id="agregar-dona">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Torta</h3>
-                            <p>Repostería</p>
-                            <p>Q45.00</p>
-                            <button type="button" id="agregar-torta">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Brownie</h3>
-                            <p>Repostería</p>
-                            <p>Q40.00</p>
-                            <button type="button" id="agregar-brownie">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Smoothie de fresa</h3>
-                            <p>Smoothie</p>
-                            <p>Q20.00</p>
-                            <button type="button" id="agregar-fresa">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Smoothie de mango</h3>
-                            <p>Smoothie</p>
-                            <p>Q25.00</p>
-                            <button type="button" id="agregar-mango">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Smoothie de matcha</h3>
-                            <p>Smoothie</p>
-                            <p>Q35.00</p>
-                            <button type="button" id="agregar-matcha">Agregar</button>
-                        </li>
-                        <li>
-                            <h3>Leche de almendras</h3>
-                            <p>Extra</p>
-                            <p>Q5.00</p>
-                            <button type="button" id="agregar-lechealmendras">Agregar</button>
-                        </li>
-                    </ul>
-                    <p id="sin-resultados" hidden="hidden" role="status">No se encontraron productos.</p>
-                </section>
-                <section class="pedido-actual">
-                    <h2>Pedido actual</h2>
-                    <form id="formulario-pedido">
-                        <p id="pedido-vacio">Agrega productos para comenzar.</p>
-                        <ul id="lista-pedido"></ul>
-                        <p id="mensaje" role="status" aria-live="polite"></p>
-                        <p class="total-pedido">Total del pedido:
+        </section>
+
+        <section class="contenido-pedido">
+            <article class="catalogo">
+                <h2>Catálogo de productos</h2>
+                <input type="search" id="buscador" placeholder="Buscar producto por nombre" 
+                aria-label="Buscar producto por nombre" autocomplete="off">
+                <p>Precios por unidad</p>
+
+                <ul id="lista-productos">
+                     <li>
+            <h3>Café americano</h3>
+            <p>Bebida caliente</p>
+            <p>Q12.00</p>
+            <button type="button" id="agregar-americano">Agregar</button>
+        </li>
+        <li>
+            <h3>Capuchino</h3>
+            <p>Bebida caliente</p>
+            <p>Q18.00</p>
+            <button type="button" id="agregar-capuchino">Agregar</button>
+        </li>
+        <li>
+            <h3>Té</h3>
+            <p>Bebida caliente</p>
+            <p>Q10.00</p>
+            <button type="button" id="agregar-te">Agregar</button>
+        </li>
+        <li>
+            <h3>Sándwich</h3>
+            <p>Alimento</p>
+            <p>Q22.00</p>
+            <button type="button" id="agregar-sandwich">Agregar</button>
+        </li>
+
+        <li>
+        <h3>Espresso</h3>
+            <p>Bebida caliente</p>
+            <p>Q30.00</p>
+            <button type="button" id="agregar-espresso">Agregar</button>
+        </li>
+        <li>
+            <h3>Latte</h3>
+            <p>Bebida caliente</p>
+            <p>Q35.00</p>
+            <button type="button" id="agregar-latte">Agregar</button>
+        </li>
+        <li>
+            <h3>Americano</h3>
+            <p>Bebida caliente</p>
+            <p>Q35.00</p>
+            <button type="button" id="agregar-americano2">Agregar</button>
+        </li>
+        <li>
+            <h3>Macchiato</h3>
+            <p>Bebida caliente</p>
+            <p>Q45.00</p>
+            <button type="button" id="agregar-macchiato">Agregar</button>
+        </li>
+        <li>
+            <h3>Flat White</h3>
+            <p>Bebida caliente</p>
+            <p>Q45.00</p>
+            <button type="button" id="agregar-flatwhite">Agregar</button>
+        </li>
+        <li>
+            <h3>Medialuna</h3>
+            <p>Repostería</p>
+            <p>Q20.00</p>
+            <button type="button" id="agregar-medialuna">Agregar</button>
+        </li>
+        <li>
+            <h3>Muffin</h3>
+            <p>Repostería</p>
+            <p>Q25.00</p>
+            <button type="button" id="agregar-muffin">Agregar</button>
+        </li>
+        <li>
+            <h3>Dona</h3>
+            <p>Repostería</p>
+            <p>Q35.00</p>
+            <button type="button" id="agregar-dona">Agregar</button>
+        </li>
+        <li>
+            <h3>Torta</h3>
+            <p>Repostería</p>
+            <p>Q45.00</p>
+            <button type="button" id="agregar-torta">Agregar</button>
+        </li>
+        <li>
+            <h3>Brownie</h3>
+            <p>Repostería</p>
+            <p>Q40.00</p>
+            <button type="button" id="agregar-brownie">Agregar</button>
+        </li>
+        <li>
+            <h3>Smoothie de fresa</h3>
+            <p>Smoothie</p>
+            <p>Q20.00</p>
+            <button type="button" id="agregar-fresa">Agregar</button>
+        </li>
+        <li>
+            <h3>Smoothie de mango</h3>
+            <p>Smoothie</p>
+            <p>Q25.00</p>
+            <button type="button" id="agregar-mango">Agregar</button>
+        </li>
+        <li>
+            <h3>Smoothie de matcha</h3>
+            <p>Smoothie</p>
+            <p>Q35.00</p>
+            <button type="button" id="agregar-matcha">Agregar</button>
+        </li>
+
+        
+        <li>
+            <h3>Leche de almendras</h3>
+            <p>Extra</p>
+            <p>Q5.00</p>
+            <button type="button" id="agregar-lechealmendras">Agregar</button>
+        </li>
+                </ul>
+                <p id="sin-resultados" style="display: none;">No se encontraron productos.</p>
+            </article>
+
+            <section class="pedido-actual">
+                <h2>Pedido actual</h2>
+
+                <form id="formulario-pedido">
+                    <div id="lista-pedido"></div>
+
+                    <p id="mensaje"></p>
+
+                    <p>Total del pedido:
                     <output id="total-pedido">Q0.00</output>
-                        </p>
-                        <button type="submit">Revisar pedido</button>
-                    </form>
-                </section>
-            </div>
-        </main>
-    </body>
+                    </p>
+
+                    <button type="submit">Continuar</button>
+                </form>
+            </section>
+        </section>
+    </main>
+
+
+    
+
+</body>
 </html>
