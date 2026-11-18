@@ -1,4 +1,6 @@
 
+/* ESTILOS GENERALES */
+
 * {
     box-sizing: border-box;
 }
@@ -16,7 +18,8 @@ body {
     font-size: 18px;
 }
 
-/* Contenedor principal */
+
+/* CONTENEDOR PRINCIPAL */
 
 .santo-grano {
     background-color: white;
@@ -28,7 +31,8 @@ body {
     overflow: hidden;
 }
 
-/* Encabezado */
+
+/* ENCABEZADO */
 
 .encabezado {
     display: flex;
@@ -43,14 +47,12 @@ body {
     font-size: 14px;
 }
 
+
+/* BOTONES DE NAVEGACIÓN */
+
 .botones {
     display: flex;
     gap: 16px;
-}
-
-button {
-    cursor: pointer;
-    font-family: inherit;
 }
 
 .botones .boton-inicio {
@@ -64,6 +66,7 @@ button {
     margin: 0;
     font-size: 12px;
     font-weight: bold;
+    font-family: inherit;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
@@ -73,7 +76,13 @@ button {
     background-color: #593d2d;
 }
 
-/* Resumen diario */
+.botones .boton-inicio:focus-visible {
+    outline: 3px solid #76523b;
+    outline-offset: 3px;
+}
+
+
+/* RESUMEN DIARIO */
 
 .resumen-diario {
     padding: 12px 24px 0;
@@ -98,6 +107,9 @@ button {
     font-size: 11px;
     color: #76543f;
 }
+
+
+/* ESTADÍSTICAS */
 
 .estadisticas {
     display: flex;
@@ -125,7 +137,8 @@ button {
     font-weight: bold;
 }
 
-/* Pedidos registrados */
+
+/* PEDIDOS REGISTRADOS */
 
 .pedidos-registrados {
     padding: 16px 24px 48px;
@@ -135,6 +148,9 @@ button {
     margin: 0 0 12px;
     font-size: 13px;
 }
+
+
+/* TABLA DE PEDIDOS */
 
 .tabla-contenedor {
     overflow-x: auto;
@@ -162,6 +178,9 @@ td {
     font-size: 12px;
 }
 
+
+/* BOTÓN VER DETALLE */
+
 .btn-detalle {
     background-color: white;
     border: 1px solid #e8e1d8;
@@ -169,29 +188,10 @@ td {
     border-radius: 5px;
     padding: 7px 20px;
     font-size: 11px;
+    font-family: inherit;
+    cursor: pointer;
 }
 
 .btn-detalle:hover {
     background-color: #f5f2ed;
-}
-
-.boton-inicio {
-    display: inline-block;
-    margin: 20px;
-    padding: 12px 20px;
-    background-color: #76523b;
-    color: #ffffff;
-    font-family: inherit;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 8px;
-}
-
-.boton-inicio:hover {
-    background-color: #5e402d;
-}
-
-.boton-inicio:focus-visible {
-    outline: 3px solid #76523b;
-    outline-offset: 3px;
 }
