@@ -29,7 +29,7 @@ table{
 th,
 td {
     padding: 14px 16px;
-    text-aling: left;
+    text-align: left;
 }
 
 thead {
@@ -69,3 +69,44 @@ tfoot td {
 }
 /*el flex hace que esten a la par los dos bloques, space between hace que esten un poco apartados los bloques, flexwrap hace que se acomode to*/
 
+.enlace_inicio {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 12px 20px;
+    background-color: #76523b;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.enlace_inicio:hover {
+    background-color: #5e402d;
+}
+.pie-detalle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+.pie-detalle .enlace_inicio {
+    margin-top: 0;
+}
+
+.pie-detalle p {
+    margin: 0;
+    color: #35694e;
+    font-weight: bold;
+}
+
+.tabla_contenedor {
+    overflow-x: auto;
+
+}
+
+.tabla_contenedor table {
+    min-width: 600px;
+}

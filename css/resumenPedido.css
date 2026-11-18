@@ -1,0 +1,115 @@
+body {
+    margin:0;
+    font-family: arial, sans-serif;
+    color: #332c26;
+    background-color: #f5f2ed;
+
+}
+
+.santo {
+    max-width: 1028px;
+    margin:24px auto;
+    padding: 0 20px ;
+}
+.tarjeta_resumen {
+    background-color: white;
+    border: 1px solid #e6ddd3;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e6ddd3;
+}
+
+.titulo {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#btnModificar {
+    padding: 10px 18px;
+    border: 0;
+    border-radius: 6px;
+    background-color: #76523b;
+    color: white;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+.pedidos table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+    min-width: 560px;
+}
+
+.pedidos th,
+.pedidos td {
+    padding: 14px 16px;
+    text-align: left;
+}
+
+.pedidos thead {
+    background-color: #ece4d9;
+}
+
+.pedidos tbody tr {
+    border-bottom: 1px solid #e8ded4;
+}
+
+.pedidos tfoot th {
+    text-align: right;
+}
+
+.pedidos tfoot td {
+    font-size: 24px;
+    font-weight: bold;
+}
+.acciones {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.acciones button {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton_cancelar {
+    border: 1px solid #76523b;
+    background-color: white;
+    color: #76523b;
+}
+
+.boton_confirmar {
+    border: 1px solid #76523b;
+    background-color: #76523b;
+    color: white;
+}
+
+.tabla_contenedor {
+    overflow-x: auto;
+}
+
+@media (max-width: 480px){
+    .acciones {
+        flex-direction: column;
+
+    }
+    .acciones button {
+        width: 100%;
+    }
+}
