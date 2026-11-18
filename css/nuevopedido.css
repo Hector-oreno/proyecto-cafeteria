@@ -306,18 +306,16 @@ button:disabled {
     cursor: not-allowed;
 }
 
-@media (max-width: 800px) {
-    .contenido-pedido {
-        grid-template-columns: 1fr;
-    }
-}
 
-@media (max-width: 600px) {
-    #lista-productos {
-        grid-template-columns: 1fr;
-    }
-
-    .encabezado-pedido {
-        flex-wrap: wrap;
-    }
+/* El pedido se adapta a la pantalla sin cambiar su significado. */
+@media (max-width: 900px) {
+    .contenido-pedido { grid-template-columns: 1fr; }
 }
+@media (max-width: 480px) {
+    main { padding: 16px; }
+    #lista-productos { grid-template-columns: 1fr; }
+    .encabezado-pedido { flex-wrap: wrap; }
+}
+[hidden] { display: none !important; }
+#mensaje { color: #912d22; line-height: 1.5; }
+.catalogo label { display: block; margin-bottom: 8px; }

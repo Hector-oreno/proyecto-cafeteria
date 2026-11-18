@@ -110,17 +110,11 @@ body {
 
     }
     .acciones button {
-    width: 100%;
-    box-sizing: border-box;
-}
-}
-
-@media (max-width: 480px) {
-    .santo {
-        padding: 0 12px;
-    }
-
-    .tarjeta_resumen {
-        padding: 16px;
+        width: 100%;
     }
 }
+#btnModificar { display: inline-block; text-decoration: none; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+a:focus-visible, button:focus-visible { outline: 3px solid #76523b; outline-offset: 3px; }
+#mensaje { color: #912d22; line-height: 1.5; }
+caption { text-align: left; padding: 8px 0; }

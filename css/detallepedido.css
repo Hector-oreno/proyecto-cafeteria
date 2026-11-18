@@ -110,17 +110,7 @@ tfoot td {
 .tabla_contenedor table {
     min-width: 600px;
 }
-
-@media (max-width: 480px) {
-    main {
-        padding: 0 12px;
-    }
-
-    section {
-        padding: 16px;
-    }
-
-    .encabezado-pedido {
-        flex-direction: column;
-    }
-}
+[hidden] { display: none !important; }
+#mensaje { color: #912d22; line-height: 1.5; }
+a:focus-visible { outline: 3px solid #76523b; outline-offset: 3px; }
+caption { text-align: left; padding: 8px 0; }

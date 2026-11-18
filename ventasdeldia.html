@@ -1,81 +1,66 @@
-
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ventas del día | Santo Grano</title>
-    <link rel="stylesheet" href="css/ventasdia.css">
-    <script src="js/ventasdeldia.js" defer></script>
-</head>
-<body>
-
-    <h3 class="titulo-pagina">Ventas del día</h3>
-
-    <main class="santo-grano">
-
-        <!-- Encabezado -->
-        <header class="encabezado">
-            <h4>Santo Grano</h4>
-
-            <div class="botones">
-                <a href="nuevopedido.html" id="nuevo-pedido" class="boton-inicio">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ventas del día | Santo Grano</title>
+        <link rel="stylesheet" href="css/ventasdia.css">
+        <script src="js/funciones.js" defer></script>
+        <script src="js/ventasdeldia.js" defer></script>
+    </head>
+    <body>
+        <h1 class="titulo-pagina">Ventas del día</h1>
+        <main class="santo-grano">
+            <p id="mensaje" role="status" aria-live="polite"></p>
+            <header class="encabezado">
+                <p>Santo Grano</p>
+                <div class="botones">
+                    <a href="nuevopedido.html" id="nuevo-pedido" class="boton-inicio">
                 Nuevo pedido
                 </a>
-
-                <a href="index.html" id="menu" class="boton-inicio">
+                    <a href="index.html" id="menu" class="boton-inicio">
                     Menú
                 </a>
-            </div>
-        </header>
-
-        <!-- Resumen diario -->
-        <section class="resumen-diario">
-
-            <div class="titulo-fecha">
-                <h4>Resumen diario</h4>
-                <span id="fecha" class="fecha"></span>
-            </div>
-
-            <div class="estadisticas">
-
-                <div class="ventas-registradas">
-                    <p>VENTAS REGISTRADAS</p>
-                    <span id="VR">Q0.00</span>
                 </div>
-
-                <div class="pedidos-confirmados">
-                    <p>PEDIDOS CONFIRMADOS</p>
-                    <span id="PC">0 pedidos</span>
+            </header>
+            <section class="resumen-diario">
+                <div class="titulo-fecha">
+                    <h2>Resumen diario</h2>
+                    <label for="fecha">Fecha de consulta</label>
+                    <input id="fecha" class="fecha" type="date">
                 </div>
-
-            </div>
-        </section>
-
-        <!-- Tabla de pedidos -->
-        <section class="pedidos-registrados">
-
-            <h4>Pedidos registrados</h4>
-
-            <div class="tabla-contenedor">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>PEDIDO</th>
-                            <th>HORA</th>
-                            <th>UNIDADES</th>
-                            <th>TOTAL</th>
-                            <th>CONSULTA</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabla-pedidos">
+                <div class="estadisticas">
+                    <div class="ventas-registradas">
+                        <p>VENTAS REGISTRADAS</p>
+                        <span id="VR">Q0.00</span>
+                    </div>
+                    <div class="pedidos-confirmados">
+                        <p>PEDIDOS CONFIRMADOS</p>
+                        <span id="PC">0 pedidos</span>
+                    </div>
+                </div>
+            </section>
+            <section class="pedidos-registrados">
+                <h2>Pedidos registrados</h2>
+                <div class="tabla-contenedor">
+                    <table>
+                        <caption>Pedidos de la fecha seleccionada</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">PEDIDO</th>
+                                <th scope="col">HORA</th>
+                                <th scope="col">UNIDADES</th>
+                                <th scope="col">TOTAL</th>
+                                <th scope="col">CONSULTA</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-pedidos">
 
                     </tbody>
-                </table>
-            </div>
-
-        </section>
-
-    </main>
-</body>
+                    </table>
+                </div>
+                <p id="sin-ventas" role="status">No hay pedidos registrados para esta fecha.</p>
+            </section>
+        </main>
+    </body>
 </html>
