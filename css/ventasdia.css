@@ -195,3 +195,47 @@ td {
 .btn-detalle:hover {
     background-color: #f5f2ed;
 }
+
+@media (max-width: 700px) {
+    body {
+        padding: 12px;
+    }
+
+    .encabezado,
+    .titulo-fecha,
+    .botones {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .botones {
+        width: 100%;
+    }
+
+    .botones .boton-inicio {
+        flex: 1 1 120px;
+    }
+
+    .resumen-diario,
+    .pedidos-registrados {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .estadisticas {
+        flex-direction: column;
+    }
+
+    .ventas-registradas,
+    .pedidos-confirmados {
+        flex: none;
+    }
+
+    .fecha {
+        padding: 8px 12px;
+    }
+
+    .tabla-contenedor table {
+        min-width: 600px;
+    }
+}

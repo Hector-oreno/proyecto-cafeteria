@@ -9,13 +9,14 @@ const botonConfirmar =
 document.querySelector(".boton_confirmar");
 
 botonConfirmar.addEventListener("click", function () {
-    sessionStorage.setItem("pedidoConfirmado", JSON.stringify(pedido));
+    localStorage.setItem("pedidoConfirmado", JSON.stringify(pedido));
     window.location.href = "detallepedido.html";
 });
 
 const botonCancelar = document.querySelector(".boton_cancelar");
 
 botonCancelar.addEventListener("click", function () {
+    localStorage.removeItem("pedidoBorrador");
     window.location.href = "index.html";
 });
 
@@ -29,7 +30,7 @@ let pedido = {
     ]
 };
 
-const borradorGuardado = sessionStorage.getItem("pedidoBorrador");
+const borradorGuardado = localStorage.getItem("pedidoBorrador");
 
 if (borradorGuardado) {
     pedido = JSON.parse(borradorGuardado);

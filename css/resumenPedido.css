@@ -110,6 +110,17 @@ body {
 
     }
     .acciones button {
-        width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+}
+
+@media (max-width: 480px) {
+    .santo {
+        padding: 0 12px;
+    }
+
+    .tarjeta_resumen {
+        padding: 16px;
     }
 }

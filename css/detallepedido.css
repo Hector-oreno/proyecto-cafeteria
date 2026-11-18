@@ -110,3 +110,17 @@ tfoot td {
 .tabla_contenedor table {
     min-width: 600px;
 }
+
+@media (max-width: 480px) {
+    main {
+        padding: 0 12px;
+    }
+
+    section {
+        padding: 16px;
+    }
+
+    .encabezado-pedido {
+        flex-direction: column;
+    }
+}

@@ -1,4 +1,4 @@
-const pedidoGuardado = sessionStorage.getItem("pedidoConfirmado");
+const pedidoGuardado = localStorage.getItem("pedidoConfirmado");
 
 if (pedidoGuardado) {
     const pedido = JSON.parse(pedidoGuardado);
