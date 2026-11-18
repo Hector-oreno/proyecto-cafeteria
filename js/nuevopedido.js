@@ -1,18 +1,61 @@
 const productos = {
+    
     americano: { nombre: "Café americano", precio: 12 },
     capuchino: { nombre: "Capuchino", precio: 18 },
     te: { nombre: "Té", precio: 10 },
-    sandwich: { nombre: "Sándwich", precio: 22 }
+    sandwich: { nombre: "Sándwich", precio: 22 },
+
+    
+    espresso: { nombre: "Espresso", precio: 30 },
+    latte: { nombre: "Latte", precio: 35 },
+    americano2: { nombre: "Americano", precio: 35 },
+    macchiato: { nombre: "Macchiato", precio: 45 },
+    flatwhite: { nombre: "Flat White", precio: 45 },
+
+    
+    medialuna: { nombre: "Medialuna", precio: 20 },
+    muffin: { nombre: "Muffin", precio: 25 },
+    dona: { nombre: "Dona", precio: 35 },
+    torta: { nombre: "Torta", precio: 45 },
+    brownie: { nombre: "Brownie", precio: 40 },
+
+    fresa: { nombre: "Smoothie de fresa", precio: 20 },
+    mango: { nombre: "Smoothie de mango", precio: 25 },
+    matcha: { nombre: "Smoothie de matcha", precio: 35 },
+
+    lechealmendras: { nombre: "Leche de almendras", precio: 5 }
 };
 
 // Si ya había un pedido guardado, lo recupera; si no, empieza vacío por eso el ||
 let pedido = JSON.parse(localStorage.getItem("pedido")) || [];
 
+const buscador = document.getElementById("buscador");
+const sinResultados = document.getElementById("sin-resultados");
+const itemsCatalogo = document.querySelectorAll("#lista-productos li");
 const listaPedido = document.getElementById("lista-pedido");
 const totalPedido = document.getElementById("total-pedido");
 const mensaje = document.getElementById("mensaje");
 const formulario = document.getElementById("formulario-pedido");
 
+
+buscador.addEventListener("input", function () {
+    const busqueda = buscador.value.trim();
+    let coincidencias = 0;
+
+    for (let i = 0; i < itemsCatalogo.length; i++) {
+        const nombre = itemsCatalogo[i].querySelector("h3").textContent;
+
+        if (nombre.includes(busqueda)) {
+            itemsCatalogo[i].style.display = "";   
+            coincidencias++;
+        } else {
+            itemsCatalogo[i].style.display = "none";
+        }
+    }
+
+    // Por si nada coincide
+    sinResultados.style.display = coincidencias > 0 ? "none" : "block";
+});
 
 function guardar() {
     localStorage.setItem("pedido", JSON.stringify(pedido));
@@ -81,21 +124,11 @@ function agregar(id) {
 
 // Botones "Agregar" 
 
-document.getElementById("agregar-americano").addEventListener("click", function () {
-    agregar("americano");
-});
-
-document.getElementById("agregar-capuchino").addEventListener("click", function () {
-    agregar("capuchino");
-});
-
-document.getElementById("agregar-te").addEventListener("click", function () {
-    agregar("te");
-});
-
-document.getElementById("agregar-sandwich").addEventListener("click", function () {
-    agregar("sandwich");
-});
+for (const id in productos) {
+    document.getElementById("agregar-" + id).addEventListener("click", function () {
+        agregar(id);
+    });
+}
 
 
 // Botones +, - y Quitar 

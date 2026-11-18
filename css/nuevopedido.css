@@ -240,6 +240,17 @@ h2 {
     margin-top: 24px;
 }
 
+#buscador{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd5cc;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 0.9rem;
+}
+
 .encabezado-pedido {
     display: flex;
     justify-content: space-between;
