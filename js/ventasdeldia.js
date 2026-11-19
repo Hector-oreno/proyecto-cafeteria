@@ -1,19 +1,7 @@
-
 const fecha = document.getElementById("fecha");
 const dineroVentas = document.getElementById("VR");
 const pedidosConfirmados = document.getElementById("PC");
 const tablaPedidos = document.getElementById("tabla-pedidos");
-
-//Bloque Fecha Actual
-const date = new Date();
-
-const [month, day, year] = [
-    date.getMonth() + 1,
-    date.getDate(),
-    date.getFullYear(),
-];
-
-fecha.textContent = `${day}/${month}/${year}`;
 
 
 //Bloque Recuperar Pedidos de LocalStorage
@@ -38,187 +26,170 @@ try {
 }
 
 
-//Bloque Filtrar Ventas del Día
+//Bloque Funciones de fecha
+function fechaAClave(texto) {
+    const partes = String(texto).split(",")[0].trim().split("/");
 
-//Obtener la fecha actual en formato día/mes/año
-const fechaActual = `${day}/${month}/${year}`;
-
-//Array donde guardaremos los pedidos de hoy
-const pedidosHoy = [];
-
-//Recorrer todos los pedidos guardados
-pedidosRecuperados.forEach(pedido => {
-
-    //Comprobar que el pedido tenga fecha
-    if (!pedido || !pedido.fecha) {
-        return;
+    if (partes.length !== 3) {
+        return "";
     }
 
-    //Obtener solamente la fecha, sin la hora
-    const fechaPedido = pedido.fecha.split(",")[0].trim();
+    return partes[2] + "-" + partes[1].padStart(2, "0") + "-" + partes[0].padStart(2, "0");
+}
 
-    //Comparar con la fecha actual
-    if (fechaPedido === fechaActual) {
-        pedidosHoy.push(pedido);
-    }
+// Fecha de hoy en formato "2026-11-18", usando la hora local del dispositivo
+function fechaDeHoy() {
+    const hoy = new Date();
+    const mes = String(hoy.getMonth() + 1).padStart(2, "0");
+    const dia = String(hoy.getDate()).padStart(2, "0");
 
-});
+    return hoy.getFullYear() + "-" + mes + "-" + dia;
+}
 
 
-//Bloque Mostrar Pedidos Registrados
+//Bloque Mostrar las ventas de una fecha
 
-let totalVentas = 0;
-let totalPedidos = 0;
+function mostrarVentas(fechaElegida) {
 
-pedidosHoy.forEach(pedido => {
+    //Vaciar la tabla antes de volver a llenarla
+    tablaPedidos.textContent = "";
 
-    //Verificar que el pedido tenga productos
-    if (!Array.isArray(pedido.productos) ||
-        pedido.productos.length === 0) {
-        return;
-    }
+    let totalVentas = 0;
+    let totalPedidos = 0;
 
-    //Calcular unidades y total del pedido
-    let unidades = 0;
-    let total = 0;
-    let pedidoValido = true;
+    pedidosRecuperados.forEach(pedido => {
 
-    pedido.productos.forEach(producto => {
-
-        const cantidad = Number(producto.cantidad);
-        const precio = Number(producto.precio);
-
-        //Evitar cantidades o precios incorrectos
-        if (!Number.isInteger(cantidad) ||
-            cantidad <= 0 ||
-            !Number.isFinite(precio) ||
-            precio < 0) {
-
-            pedidoValido = false;
+        //Comprobar que el pedido tenga fecha
+        if (!pedido || !pedido.fecha) {
             return;
         }
 
-        unidades += cantidad;
-        total += precio * cantidad;
+        //Saltar los pedidos de otras fechas
+        if (fechaAClave(pedido.fecha) !== fechaElegida) {
+            return;
+        }
+
+        //Verificar que el pedido tenga productos
+        if (!Array.isArray(pedido.productos) ||
+            pedido.productos.length === 0) {
+            return;
+        }
+
+        //Calcular unidades y total del pedido
+        let unidades = 0;
+        let total = 0;
+        let pedidoValido = true;
+
+        pedido.productos.forEach(producto => {
+
+            const cantidad = Number(producto.cantidad);
+            const precio = Number(producto.precio);
+
+            //Evitar cantidades o precios incorrectos
+            if (!Number.isInteger(cantidad) ||
+                cantidad <= 0 ||
+                !Number.isFinite(precio) ||
+                precio < 0) {
+
+                pedidoValido = false;
+                return;
+            }
+
+            unidades += cantidad;
+            total += precio * cantidad;
+
+        });
+
+        //No mostrar pedidos con datos inválidos
+        if (!pedidoValido) {
+            return;
+        }
+
+        //Fila de la tabla
+        let newTablatr = document.createElement("tr");
+        tablaPedidos.appendChild(newTablatr);
+
+        //Número de pedido
+        let newtd = document.createElement("td");
+        newTablatr.appendChild(newtd);
+        newtd.textContent = `#${String(pedido.numero).padStart(3, "0")}`;
+
+        //Hora
+        let newtdhora = document.createElement("td");
+        newTablatr.appendChild(newtdhora);
+        newtdhora.textContent = pedido.hora;
+
+        //Unidades
+        let newtdUnidades = document.createElement("td");
+        newTablatr.appendChild(newtdUnidades);
+        newtdUnidades.textContent = unidades;
+
+        //Total
+        let newtdPedido = document.createElement("td");
+        newTablatr.appendChild(newtdPedido);
+        newtdPedido.textContent = `Q${total.toFixed(2)}`;
+
+        //Botón de detalle
+        let newtdConsulta = document.createElement("td");
+        newTablatr.appendChild(newtdConsulta);
+
+        let botonDetalle = document.createElement("button");
+        botonDetalle.type = "button";
+        botonDetalle.textContent = "Ver Detalles";
+        botonDetalle.className = "btn-detalle";
+        newtdConsulta.appendChild(botonDetalle);
+
+        //Abrir detalle del pedido seleccionado
+        botonDetalle.addEventListener("click", function () {
+            localStorage.setItem("pedidoSeleccionado", JSON.stringify(pedido));
+            window.location.href = "detallepedido.html";
+        });
+
+        //Sumar Ventas y Pedidos Confirmados
+        totalVentas += total;
+        totalPedidos++;
 
     });
 
-    //No mostrar pedidos con datos inválidos
-    if (!pedidoValido) {
-        return;
+    //Mostrar Dinero de Ventas
+    dineroVentas.textContent = `Q${totalVentas.toFixed(2)}`;
+
+    //Mostrar Pedidos Confirmados
+    if (totalPedidos === 1) {
+        pedidosConfirmados.textContent = "1 pedido";
+    } else {
+        pedidosConfirmados.textContent = `${totalPedidos} pedidos`;
     }
 
-    //Bloque Mostrar la tabla de pedidos
-    let newTablatr = document.createElement("tr");
-    tablaPedidos.appendChild(newTablatr);
+    //Mostrar Mensaje si no hay Pedidos
+    if (totalPedidos === 0) {
 
-    let newtd = document.createElement("td");
-    newTablatr.appendChild(newtd);
+        let newTablatr = document.createElement("tr");
+        tablaPedidos.appendChild(newTablatr);
 
-    newtd.textContent = `#${String(pedido.numero).padStart(3, "0")}`;
+        let newtd = document.createElement("td");
+        newtd.colSpan = 5;
+        newtd.textContent = "No hay pedidos registrados para la fecha seleccionada";
+        newtd.style.textAlign = "center";
 
-
-    //Bloque Mostrar la tabla de hora
-    let newtdhora = document.createElement("td");
-    newTablatr.appendChild(newtdhora);
-
-    newtdhora.textContent = pedido.hora;
-
-
-    //Bloque Mostrar la tabla de unidades
-    let newtdUnidades = document.createElement("td");
-    newTablatr.appendChild(newtdUnidades);
-
-    newtdUnidades.textContent = unidades;
-
-
-    //Bloque Mostrar la tabla de total
-    let newtdPedido = document.createElement("td");
-    newTablatr.appendChild(newtdPedido);
-
-    newtdPedido.textContent = `Q${total.toFixed(2)}`;
-
-
-    //Bloque Mostrar la tabla de detalle
-    let newtdConsulta = document.createElement("td");
-    newTablatr.appendChild(newtdConsulta);
-
-    let botonDetalle = document.createElement("button");
-
-    botonDetalle.type = "button";
-    botonDetalle.textContent = "Ver Detalles";
-
-    newtdConsulta.appendChild(botonDetalle);
-
-
-    //Asignar el botón para el CSS
-    botonDetalle.className = "btn-detalle";
-
-
-//Abrir detalle del pedido seleccionado
-botonDetalle.addEventListener("click", function () {
-
-    //Guardar el pedido seleccionado
-    localStorage.setItem(
-        "pedidoSeleccionado",
-        JSON.stringify(pedido)
-    );
-
-    //Abrir página de detalles
-    window.location.href = "detallepedido.html";
-});
-
-
-
-    //Bloque Evento Ver Detalles
-    botonDetalle.addEventListener("click", function () {
-
-        //Guardar el pedido seleccionado
-        localStorage.setItem(
-            "pedidoSeleccionado",
-            JSON.stringify(pedido)
-        );
-
-        //Abrir la página de detalles
-        window.location.href = "detallepedido.html";
-
-    });
-
-
-    //Bloque Sumar Ventas y Pedidos Confirmados
-    totalVentas += total;
-    totalPedidos++;
-
-});
-
-
-//Bloque Mostrar Dinero de Ventas
-
-dineroVentas.textContent = `Q${totalVentas.toFixed(2)}`;
-
-
-//Bloque Mostrar Pedidos Confirmados
-
-if (totalPedidos === 1) {
-    pedidosConfirmados.textContent = "1 Pedido";
-} else {
-    pedidosConfirmados.textContent = `${totalPedidos} Pedidos`;
+        newTablatr.appendChild(newtd);
+    }
 }
 
 
-//Bloque Mostrar Mensaje si no hay Pedidos
+//Bloque Selector de fecha
 
-if (totalPedidos === 0) {
+// Al abrir la página, el selector empieza en hoy
+fecha.value = fechaDeHoy();
+mostrarVentas(fecha.value);
 
-    let newTablatr = document.createElement("tr");
-    tablaPedidos.appendChild(newTablatr);
+// Cada vez que se elige otra fecha, se vuelve a mostrar la tabla
+fecha.addEventListener("change", function () {
 
-    let newtd = document.createElement("td");
+    // Si presionan "Borrar" en el calendario, vuelve a hoy
+    if (fecha.value === "") {
+        fecha.value = fechaDeHoy();
+    }
 
-    newtd.colSpan = 5;
-    newtd.textContent = "No hay pedidos registrados para hoy";
-    newtd.style.textAlign = "center";
-
-    newTablatr.appendChild(newtd);
-
-}
+    mostrarVentas(fecha.value);
+});

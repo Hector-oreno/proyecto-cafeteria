@@ -196,18 +196,61 @@ td {
     background-color: #f5f2ed;
 }
 
-.btn-detalle { display: inline-block; text-decoration: none; }
-#mensaje { margin: 16px 24px; color: #912d22; line-height: 1.5; }
-.titulo-fecha { flex-wrap: wrap; gap: 12px; }
-.fecha { font: inherit; padding: 8px; }
-caption { text-align: left; padding: 8px 0; }
-[hidden] { display: none !important; }
+.btn-detalle { 
+    display: inline-block; 
+    text-decoration: none; 
+}
+
+#mensaje {
+    margin: 16px 24px; 
+    color: #912d22; 
+    line-height: 1.5; 
+}
+
+.titulo-fecha { flex-wrap: wrap; 
+    gap: 12px; 
+}
+
+.fecha { 
+    font: inherit; 
+    padding: 8px; 
+}
+
+caption { 
+    text-align: left;
+    padding: 8px 0; 
+}
+
+[hidden] { 
+    display: none !important; 
+}
+
 a:focus-visible, input:focus-visible { outline: 3px solid #76523b; outline-offset: 3px; }
+
 @media (max-width: 600px) {
-    body { padding: 12px; }
-    .encabezado { flex-wrap: wrap; gap: 12px; padding: 16px; }
-    .botones { flex-wrap: wrap; }
-    .estadisticas { flex-direction: column; }
-    .resumen-diario, .pedidos-registrados { padding: 16px; }
-    table { min-width: 540px; }
+    body { 
+        padding: 12px; 
+    }
+
+    .encabezado { 
+        flex-wrap: wrap;
+        gap: 12px; 
+        padding: 16px; 
+    }
+
+    .botones { 
+        flex-wrap: wrap; 
+    }
+
+    .estadisticas { 
+        flex-direction: column; 
+    }
+
+    .resumen-diario, .pedidos-registrados { 
+        padding: 16px; 
+    }
+
+    table { 
+        min-width: 540px; 
+    }
 }
